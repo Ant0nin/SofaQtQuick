@@ -2087,7 +2087,11 @@ void SofaScene::removeChild(Node* parent, Node* child)
     for(Node::ChildIterator it = child->child.begin(); it != child->child.end(); ++it)
         removeChild(child, it->get());
 
+    this->onBeginRemoveChild(parent, child);
+
     myBases.remove(child);
+
+    this->onEndRemoveChild(parent, child);
 }
 
 void SofaScene::addObject(Node* parent, BaseObject* object)
@@ -2095,7 +2099,11 @@ void SofaScene::addObject(Node* parent, BaseObject* object)
     if(!object || !parent)
         return;
 
+    this->onBeginAddObject(parent, object);
+
     myBases.insert(object);
+
+    this->onEndAddObject(parent, object);
 }
 
 void SofaScene::removeObject(Node* parent, BaseObject* object)
@@ -2103,7 +2111,11 @@ void SofaScene::removeObject(Node* parent, BaseObject* object)
     if(!object || !parent)
         return;
 
+    this->onBeginRemoveObject(parent, object);
+
     myBases.remove(object);
+
+    this->onEndRemoveObject(parent, object);
 }
 
 }
