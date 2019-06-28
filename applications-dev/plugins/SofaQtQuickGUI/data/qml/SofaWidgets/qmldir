@@ -12,3 +12,4 @@ QML_LiveCoding 1.0 QML_LiveCoding.qml
 AffineTransformationController 1.0 AffineTransformationController.qml
 ColorSelector 1.0 ColorSelector.qml
 ControlledSofaViewer 1.0 ControlledSofaViewer.qml
+SofaPlot2D 1.0 SofaPlot2D.qml

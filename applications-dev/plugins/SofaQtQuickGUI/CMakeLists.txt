@@ -153,9 +153,9 @@ set(QML_FILES
     data/qml/SofaWidgets/AffineTransformationController.qml
     data/qml/SofaWidgets/ColorSelector.qml
     data/qml/SofaWidgets/SofaSceneViewer.qml
-
     data/qml/SofaWidgets/Inspector.qml
     data/qml/SofaWidgets/Message.qml
+    data/qml/SofaWidgets/SofaPlot2D.qml
 )
 
 

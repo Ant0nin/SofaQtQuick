@@ -77,5 +77,6 @@
         <file>SofaDataTypes/SofaDataType_FileName.qml</file>
         <file>SofaBasics/ColorChooser.qml</file>
         <file>SofaDataTypes/SofaDataType_RGBAColor.qml</file>
+        <file>SofaWidgets/SofaPlot2D.qml</file>
     </qresource>
 </RCC>
