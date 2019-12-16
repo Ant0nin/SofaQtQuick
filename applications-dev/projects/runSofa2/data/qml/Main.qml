@@ -27,6 +27,9 @@ import SofaBasics 1.0
 import SofaApplication 1.0
 import SofaWidgets 1.0
 
+//import my.plugin.example 1.0 as MyPlugin // TODO: import on C++ side?
+import SuctionCupGUIExtend 1.0
+
 ApplicationWindow {
     id: root
     width: 1280

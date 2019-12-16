@@ -18,6 +18,7 @@ along with sofaqtquick. If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <SofaQtQuickGUI/SofaApplication.h>
+#include <iostream>
 
 int main(int argc, char **argv)
 {
@@ -31,6 +32,13 @@ int main(int argc, char **argv)
     app.setOrganizationName("Sofa Consortium");
     app.setApplicationName("runSofa2");
     app.setApplicationVersion("v1.0");
+
+    // Add import search path
+//    applicationEngine.addImportPath("./qml_modules");
+
+    for(auto& path : applicationEngine.importPathList()) {
+        std::cout << path.toStdString() << std::endl;
+    }
 
     // common settings for most sofaqtquick applications
     if(!sofa::qtquick::SofaApplication::DefaultMain(app, applicationEngine, "qrc:/qml/Main.qml"))

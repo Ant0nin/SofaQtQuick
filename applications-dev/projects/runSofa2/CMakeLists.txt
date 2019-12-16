@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.8.12)
 project(runSofa2)
 
+set(CMAKE_AUTOMOC ON)
+
 set(SOURCE_FILES
     Main.cpp
 )
@@ -56,7 +58,15 @@ qt5_add_resources(RESOURCE_FILES ${QRC_FILES})
 
 add_executable(${PROJECT_NAME} ${HEADER_FILES} ${MOC_FILES} ${SOURCE_FILES} ${QRC_FILES} ${RESOURCE_FILES} ${QML_FILES} ${CONFIG_FILES})
 
-target_link_libraries(${PROJECT_NAME} SofaQtQuickGUI Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Qml Qt5::Quick)
+target_link_libraries(${PROJECT_NAME} SofaQtQuickGUI Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Qml Qt5::Quick SuctionCupGUIExtend)
 
 sofa_install_targets(SofaGui ${PROJECT_NAME} "")
 
+#add_subdirectory(plugins/my/plugin/example "../../bin/")
+add_subdirectory(/home/abernard/Workspace/sofa/addon_suction_cup/gui_extend "../../bin/SuctionCupGUIExtend")
+
+get_target_property(QML_IMPORT_PATH_SofaQtQuickGUI SofaQtQuickGUI QML_IMPORT_PATH_partial)
+get_target_property(QML_IMPORT_PATH_SuctionCupGUIExtend SuctionCupGUIExtend QML_IMPORT_PATH_partial)
+list(APPEND QML_DIRS "${QML_IMPORT_PATH_SofaQtQuickGUI}")
+list(APPEND QML_DIRS "${QML_IMPORT_PATH_SuctionCupGUIExtend}")
+set(QML_IMPORT_PATH "${QML_DIRS}" CACHE STRING "Qt Creator extra qml import paths" FORCE)

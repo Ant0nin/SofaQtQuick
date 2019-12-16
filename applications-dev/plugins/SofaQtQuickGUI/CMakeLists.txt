@@ -158,19 +158,6 @@ set(QML_FILES
     data/qml/SofaWidgets/SofaPlot2D.qml
 )
 
-
-list(APPEND QML_DIRS "${CMAKE_CURRENT_LIST_DIR}/data/qml/")
-list(APPEND QML_DIRS "${CMAKE_CURRENT_LIST_DIR}/data/qml/SofaDataTypes/")
-list(APPEND QML_DIRS "${CMAKE_CURRENT_LIST_DIR}/data/qml/SofaApplication/")
-list(APPEND QML_DIRS "${CMAKE_CURRENT_LIST_DIR}/data/qml/SofaBasics/")
-list(APPEND QML_DIRS "${CMAKE_CURRENT_LIST_DIR}/data/qml/SofaInteractors/")
-list(APPEND QML_DIRS "${CMAKE_CURRENT_LIST_DIR}/data/qml/SofaManipulators/")
-list(APPEND QML_DIRS "${CMAKE_CURRENT_LIST_DIR}/data/qml/SofaWidgets/")
-set(QML_IMPORT_PATH "${QML_DIRS}" CACHE STRING "Qt Creator extra qml import paths" FORCE)
-
-
-
-
 set(CONFIG_FILES
     data/config/default.ini
     data/config/classic.ini
@@ -267,3 +254,14 @@ foreach(HEADER ${HEADER_FILES})
     string(REGEX MATCH "(.*)[/\\]" DIR ${HEADER})
     install(FILES ${HEADER} DESTINATION "include/${PROJECT_NAME}/${DIR}")
 endforeach(HEADER HEADERS)
+
+list(APPEND QML_DIRS "${CMAKE_CURRENT_LIST_DIR}/data/qml/")
+list(APPEND QML_DIRS "${CMAKE_CURRENT_LIST_DIR}/data/qml/SofaDataTypes/")
+list(APPEND QML_DIRS "${CMAKE_CURRENT_LIST_DIR}/data/qml/SofaApplication/")
+list(APPEND QML_DIRS "${CMAKE_CURRENT_LIST_DIR}/data/qml/SofaBasics/")
+list(APPEND QML_DIRS "${CMAKE_CURRENT_LIST_DIR}/data/qml/SofaInteractors/")
+list(APPEND QML_DIRS "${CMAKE_CURRENT_LIST_DIR}/data/qml/SofaManipulators/")
+list(APPEND QML_DIRS "${CMAKE_CURRENT_LIST_DIR}/data/qml/SofaWidgets/")
+list(APPEND QML_DIRS "${CMAKE_CURRENT_LIST_DIR}/data/qml/SofaScene/")
+#set(QML_IMPORT_PATH "${QML_DIRS}" CACHE STRING "Qt Creator extra qml import paths" FORCE)
+set_target_properties(${PROJECT_NAME} PROPERTIES QML_IMPORT_PATH_partial "${QML_DIRS}")
