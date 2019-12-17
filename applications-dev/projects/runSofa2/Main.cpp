@@ -36,7 +36,15 @@ int main(int argc, char **argv)
     // Add import search path
 //    applicationEngine.addImportPath("./qml_modules");
 
+    std::cout << "== Qt: importPathList (QML stuff):" << std::endl;
     for(auto& path : applicationEngine.importPathList()) {
+        std::cout << path.toStdString() << std::endl;
+    }
+
+//    applicationEngine.addPluginPath("/home/abernard/Workspace/sofa/build_master_debug/lib"); // TODO: do this using a CMakeLists.txt if possible, or use a relative path
+
+    std::cout << "== Qt: pluginPathList (compiled C++):" << std::endl;
+    for(auto& path : applicationEngine.pluginPathList()) {
         std::cout << path.toStdString() << std::endl;
     }
 
