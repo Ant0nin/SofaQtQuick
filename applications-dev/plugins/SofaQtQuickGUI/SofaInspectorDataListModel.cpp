@@ -83,11 +83,11 @@ void SofaInspectorDataListModel::update()
             QString baseString("Base");
             for(BaseData* data : base->getDataFields())
             {
-                const char* gname = data->getGroup() ;
-                if(strlen(gname)==0){
+                std::string gname = data->getGroup() ;
+                if(gname.size()==0){
                     gname = data->getOwnerClass() ;
                 }
-                ItemGroup* ig = findOrCreateGroup(getGroupName(QString(gname),
+                ItemGroup* ig = findOrCreateGroup(getGroupName(QString::fromStdString(gname),
                                                                baseString)) ;
                 ig->m_children.append(new Item(QString::fromStdString(data->getName()),
                                                QVariant::fromValue((void*)data),

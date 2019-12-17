@@ -1029,7 +1029,7 @@ QVariantMap SofaScene::dataObject(const sofa::core::objectmodel::BaseData* data)
                 type = "RGBAColor";
     }
 
-    QString widget(data->getWidget());
+    QString widget = QString::fromStdString(data->getWidget());
     if(!widget.isEmpty())
         type = widget;
 
@@ -1038,9 +1038,9 @@ QVariantMap SofaScene::dataObject(const sofa::core::objectmodel::BaseData* data)
     SofaData* sofaData = new SofaData(new SofaComponent(this, data->getOwner()), data);
     object.insert("sofaData", QVariant::fromValue(sofaData));
     object.insert("name", data->getName().c_str());
-    object.insert("description", data->getHelp());
+    object.insert("description", data->getHelp().c_str());
     object.insert("type", type);
-    object.insert("group", data->getGroup());
+    object.insert("group", data->getGroup().c_str());
     object.insert("properties", properties);
     object.insert("link", QString::fromStdString(data->getLinkPath()));
     object.insert("value", dataValue(data));
